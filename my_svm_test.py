@@ -121,13 +121,15 @@ def test_smo():
     C = 2
     toler = 1e-6
     max_iter = 100
-    k_tup = ('lin', 1)
+    k_tup = ('rbf', 1)
     # meta = sim_smo(dataMat, labelMat, C, toler, max_iter, k_tup)
     meta = smo(dataMat, labelMat, C, toler, max_iter, k_tup)
     result = predict(meta, dataMat)
-    check1 = (result > 0) * (labelMat > 0)
-    check2 = (result < 0) * (labelMat < 0)
-    check = check1 + check2
+    # check1 = (result > 0) * (labelMat > 0)
+    # check2 = (result < 0) * (labelMat < 0)
+    # check = check1 + check2
+    check = (result == labelMat)
+    print(result)
     print('sum, check', np.sum(check))
     # check = (result == labelMat)
     # print(check)

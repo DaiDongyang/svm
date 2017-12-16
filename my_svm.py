@@ -95,7 +95,8 @@ def inner_l(i, meta, is_simple):
             j = select_j_rand(i, meta.m)
             ej = float(meta.e_cache[j])
         else:
-            j, ej = select_j(i, meta, False)
+            # todo:to do more work about the third argment
+            j, ej = select_j(i, meta, True)
         # print('meta.a\n', meta.a)
         ai_old = float(meta.a[i])
         aj_old = float(meta.a[j])
@@ -179,7 +180,7 @@ def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
     return meta
 
 
-def predict(meta, data):
+def predict_origin(meta, data):
     a = meta.a
     sv_ind = np.nonzero(a > 0)[0]
     sv_x = meta.X[sv_ind]
@@ -193,4 +194,12 @@ def predict(meta, data):
         K = line_trans(sv_x, data)
     results = (np.dot((sv_y * sv_a).T, K)).T + meta.b
     return results
+
+
+def predict(meta, data):
+    result = predict_origin(meta, data)
+    result[result >= 0] = 1
+    result[result < 0] = -1
+    return result
+
 

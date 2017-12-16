@@ -24,3 +24,5 @@ def load_sample_set(fold_path):
             instances.append(instance)
             ls.append(l)
     return np.array(instances), np.array(ls).transpose()
+
+

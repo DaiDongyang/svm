@@ -8,6 +8,7 @@ def test_load():
     test_set, test_l = load_data.load_sample_set(test_path)
     print('train:', train_set.shape, train_l.shape)
     print('test:', test_set.shape, test_l.shape)
+    print(train_l.dtype)
 
 
 if __name__=='__main__':

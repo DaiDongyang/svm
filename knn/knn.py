@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import time
-import KDTree
+from . import KDTree
 from os.path import join
 from collections import defaultdict
 from tqdm import tqdm

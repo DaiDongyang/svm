@@ -177,3 +177,20 @@ def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
         it += 1
         print('iter number: %d' % it)
     return meta
+
+
+def predict(meta, data):
+    a = meta.a
+    sv_ind = np.nonzero(a > 0)[0]
+    sv_x = meta.X[sv_ind]
+    sv_y = meta.y[sv_ind]
+    sv_a = meta.a[sv_ind]
+    # if meta.k_tup[0] == 'lin' or meta.k_tup[0] == 'line':
+    #     K = line_trans(sv_x, data)
+    if meta.k_tup[0] == 'rbf':
+        K = rbf_trans(sv_x, data, meta.k_tup[1])
+    else:
+        K = line_trans(sv_x, data)
+    results = (np.dot((sv_y * sv_a).T, K)).T + meta.b
+    return results
+

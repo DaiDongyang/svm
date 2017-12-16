@@ -150,7 +150,7 @@ def innerL(i, oS):
         j,Ej = selectJ(i, oS, Ei) #this has been changed from selectJrand
 
         # print(j, Ej)
-        print('oS.alphas\n', oS.alphas)
+        # print('oS.alphas\n', oS.alphas)
         alphaIold = oS.alphas[i].copy(); alphaJold = oS.alphas[j].copy();
         if (oS.labelMat[i] != oS.labelMat[j]):
             L = max(0, oS.alphas[j] - oS.alphas[i])
@@ -158,7 +158,7 @@ def innerL(i, oS):
         else:
             L = max(0, oS.alphas[j] + oS.alphas[i] - oS.C)
             H = min(oS.C, oS.alphas[j] + oS.alphas[i])
-        print('L, H, alphaiold', L, H, alphaIold)
+        # print('L, H, alphaiold', L, H, alphaIold)
         if L==H: print("L==H"); return 0
         eta = 2.0 * oS.K[i,j] - oS.K[i,i] - oS.K[j,j] #changed for kernel
         if eta >= 0: print("eta>=0"); return 0

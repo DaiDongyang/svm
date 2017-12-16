@@ -1,6 +1,7 @@
 from my_svm import *
 import svm_ref
 import numpy as np
+import matplotlib.pyplot as pyplot
 
 
 def test_line_trans():
@@ -34,7 +35,7 @@ def test_meta():
     m = len(data)
     y = np.array([1, -1, 1, -1, 1, -1, 1, -1]).reshape((-1, 1))
     C = 2
-    toler = 0.001
+    toler = 0.0001
     gamma = 3
     k_tup1 = ('rbf', gamma)
     k_tup2 = ('rbf', np.sqrt(1/gamma))
@@ -88,7 +89,63 @@ def test_meta():
     # print()
 
 
+def loadDataSet(fileName):
+    dataMat = []; labelMat = []
+    fr = open(fileName)
+    for line in fr.readlines():
+        lineArr = line.strip().split('\t')
+        dataMat.append([float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(float(lineArr[2]))
+    return np.array(dataMat), np.array(labelMat).reshape((-1, 1))
+
+
+def calcWs(alphas,dataArr,classLabels):
+    X = np.mat(dataArr); labelMat = np.mat(classLabels)
+    m,n = np.shape(X)
+    w = np.zeros((n,1))
+    for i in range(m):
+        # print(np.shape(w))
+        # print(np.shape(X[i,:].T))
+        # print(np.shape(alphas[i]))
+        # print(np.shape(labelMat[i]))
+        # print(np.shape(alphas[i]*labelMat[i]))
+        # print(np.shape(np.multiply(alphas[i]*labelMat[i], X[i,:].T)))
+        w += np.multiply(alphas[i]*labelMat[i],X[i,:].T)
+    return w
+
+
+def test_smo():
+    print('test smo')
+    filename = './practice/testSet.txt'
+    dataMat, labelMat = loadDataSet(filename)
+    C = 2
+    toler = 1e-6
+    max_iter = 100
+    k_tup = ('lin', 1)
+    # meta = sim_smo(dataMat, labelMat, C, toler, max_iter, k_tup)
+    meta = smo(dataMat, labelMat, C, toler, max_iter, k_tup)
+    w = calcWs(np.mat(meta.a), dataMat, labelMat)
+    print(w)
+    print(meta.b)
+    # (-1 * w[0] - meta.b) /
+    # print(dataMat)
+    # print(labelMat)
+
+
+def test_smo2():
+    filename = './practice/testSet.txt'
+    C = 200
+    toler = 0
+    max_iter = 100
+    k_tup = ('lin', 1)
+    dataMat, labelMat = svm_ref.loadDataSet(filename)
+    b, alphas = svm_ref.smoP(dataMat, labelMat, C, toler, max_iter)
+    w = svm_ref.calcWs(alphas, dataMat, labelMat)
+    print(w)
+    print(b)
+
 
 if __name__ == '__main__':
-    test_meta()
+    test_smo()
+    # test_smo()
     # test_rbf_trans()

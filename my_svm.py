@@ -60,6 +60,7 @@ class Meta:
             self.K = rbf_trans(data, data, k_tup[1])
         else:
             raise NameError("The kernel is not recognized, please make sure kernel is 'rbf' or 'line'")
+        self.calc_e()
 
     def calc_e(self):
         gx = np.dot(self.K, self.y * self.a) + self.b
@@ -73,24 +74,28 @@ class Meta:
         return np.dot(self.K, self.y * self.a) + self.b - self.y
 
 
-def select_j(i, meta):
+def select_j(i, meta, is_random):
     ei = meta.e_cache[i]
     delta_e = np.abs(meta.e_cache - ei)
-    j = np.argmax(delta_e)
+    if is_random:
+        j = np.random.choice(np.flatnonzero(delta_e == delta_e.max()))
+    else:
+        j = np.argmax(delta_e)
     if j == i:
         j = select_j_rand(i, meta.m)
-    return j, meta.e_cache[j]
+    return j, float(meta.e_cache[j])
 
 
 def inner_l(i, meta, is_simple):
-    ei = meta.e_cache[i]
-    # todo: if initial of a is zero, how can work
+    ei = float(meta.e_cache[i])
+    # kkt check
     if (float(meta.y[i]) * ei < -meta.tol and float(meta.a[i]) < meta.C) or (
             float(meta.y[i]) * ei > meta.tol and float(meta.a[i]) > 0):
         if is_simple:
-            j, ej = select_j_rand(i, meta.m)
+            j = select_j_rand(i, meta.m)
+            ej = float(meta.e_cache[j])
         else:
-            j, ej = select_j(i, meta)
+            j, ej = select_j(i, meta, False)
         # print('meta.a\n', meta.a)
         ai_old = float(meta.a[i])
         aj_old = float(meta.a[j])
@@ -115,16 +120,16 @@ def inner_l(i, meta, is_simple):
             return 0
         meta.a[j] = aj
         meta.a[i] += meta.y[j] * meta.y[i] * (aj_old - meta.a[j])  # update i by the same amount as j
-        b1 = meta.b - ei - meta.y[i] * (meta.a[i] - ai_old) * meta.K[i, i] - meta.y[j] * (
-                meta.a[j] - aj_old) * meta.K[i, j]
-        b2 = meta.b - ej - meta.y[i] * (meta.a[i] - ai_old) * meta.K[i, j] - meta.y[j] * (
-                meta.a[j] - aj_old) * meta.K[j, j]
+        b1 = meta.b - ei - meta.y[i] * (meta.a[i] - ai_old) * meta.K[i, i] - meta.y[j] * (meta.a[j] - aj_old) * meta.K[
+            i, j]
+        b2 = meta.b - ej - meta.y[i] * (meta.a[i] - ai_old) * meta.K[i, j] - meta.y[j] * (meta.a[j] - aj_old) * meta.K[
+            j, j]
         if 0 < meta.a[i] < meta.C:
             meta.b = b1
         elif 0 < meta.a[j] < meta.C:
             meta.b = b2
         else:
-            meta.b = (b1 + b2)/2
+            meta.b = (b1 + b2) / 2
         meta.calc_e()
         # print(meta.a)
         return 1
@@ -137,7 +142,7 @@ def smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
     # iteration
     it = 0
     entire_set = False
-    pair_changed = 0
+    pair_changed = 1
     while it < max_iter and (entire_set or pair_changed > 0):
         pair_changed = 0
         if entire_set:
@@ -155,6 +160,7 @@ def smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
         elif pair_changed == 0:
             entire_set = True
         print('iter number: %d' % it)
+    return meta
 
 
 def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
@@ -167,10 +173,7 @@ def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
         pair_change = 0
         for i in range(meta.m):
             pair_change += inner_l(i, meta, is_simple)
-            print('simple smo, iter: %d, i%d,pair changed %d' %(it, i, pair_change))
+            print('simple smo, iter: %d, i%d,pair changed %d' % (it, i, pair_change))
         it += 1
         print('iter number: %d' % it)
-
-
-
-
+    return meta

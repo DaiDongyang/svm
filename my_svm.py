@@ -41,15 +41,6 @@ def select_j_rand(i, m):
     return j
 
 
-# np.clip
-# def clip_a(a, l, h):
-#     if a < l:
-#         a = l
-#     elif a > h:
-#         a = h
-#     return a
-
-
 class Meta:
     def __init__(self, data, ls, C, toler, k_tup):
         self.b = 0
@@ -91,13 +82,16 @@ def select_j(i, meta):
     return j, meta.e_cache[j]
 
 
-def inner_l(i, meta):
+def inner_l(i, meta, is_simple):
     ei = meta.e_cache[i]
     # todo: if initial of a is zero, how can work
     if (float(meta.y[i]) * ei < -meta.tol and float(meta.a[i]) < meta.C) or (
             float(meta.y[i]) * ei > meta.tol and float(meta.a[i]) > 0):
-        j, ej = select_j(i, meta)
-        print('meta.a\n', meta.a)
+        if is_simple:
+            j, ej = select_j_rand(i, meta.m)
+        else:
+            j, ej = select_j(i, meta)
+        # print('meta.a\n', meta.a)
         ai_old = float(meta.a[i])
         aj_old = float(meta.a[j])
         if meta.y[i] != meta.y[j]:
@@ -109,7 +103,7 @@ def inner_l(i, meta):
         if low == high:
             print('l == h')
             return 0
-        print('L, H, alphaiold', low, high, ai_old)
+        # print('L, H, alphaiold', low, high, ai_old)
         eta = 2.0 * meta.K[i, j] - meta.K[i, i] - meta.K[j, j]
         if eta >= 0:
             print('eta >= 0')
@@ -135,6 +129,47 @@ def inner_l(i, meta):
         # print(meta.a)
         return 1
     return 0
+
+
+def smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
+    is_simple = False
+    meta = Meta(data, ls, C, toler, k_tup)
+    # iteration
+    it = 0
+    entire_set = False
+    pair_changed = 0
+    while it < max_iter and (entire_set or pair_changed > 0):
+        pair_changed = 0
+        if entire_set:
+            for i in range(meta.m):
+                pair_changed += inner_l(i, meta, is_simple)
+                print('fullSet, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
+        else:
+            non_bound_idxes = np.nonzero((meta.a > 0) * (meta.a < meta.C))[0]
+            for i in non_bound_idxes:
+                pair_changed += inner_l(i, meta, is_simple)
+                print('non-bound, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
+        it += 1
+        if entire_set:
+            entire_set = False
+        elif pair_changed == 0:
+            entire_set = True
+        print('iter number: %d' % it)
+
+
+def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
+    is_simple = True
+    meta = Meta(data, ls, C, toler, k_tup)
+    # iteration
+    it = 0
+    pair_change = 1
+    while it < max_iter and pair_change > 0:
+        pair_change = 0
+        for i in range(meta.m):
+            pair_change += inner_l(i, meta, is_simple)
+            print('simple smo, iter: %d, i%d,pair changed %d' %(it, i, pair_change))
+        it += 1
+        print('iter number: %d' % it)
 
 
 

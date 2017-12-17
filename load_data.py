@@ -26,3 +26,16 @@ def load_sample_set(fold_path):
     return np.array(instances), np.array(ls).transpose()
 
 
+def extract_subset(data, ls, i):
+    data_i = data[ls == i]
+    # l_i = ls[ls == i]
+    return data_i
+
+
+def get_subsets(data, ls, classes):
+    subsets = list()
+    for i in classes:
+        subset = data[ls == i]
+        subsets.append(subset)
+    return subsets
+

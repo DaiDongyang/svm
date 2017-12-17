@@ -1,7 +1,6 @@
 from my_svm import *
-import svm_ref
+from to_delete import svm_ref
 import numpy as np
-import matplotlib.pyplot as pyplot
 
 
 def test_line_trans():
@@ -26,7 +25,7 @@ def test_rbf_trans():
     print()
     K2 = np.mat(np.zeros((4, 2)))
     for i in range(2):
-        K2[:, i] = svm_ref.kernelTrans(np.mat(data1), np.mat(data2[i, :]), ('rbf', np.sqrt(1/gamma)))
+        K2[:, i] = svm_ref.kernelTrans(np.mat(data1), np.mat(data2[i, :]), ('rbf', np.sqrt(1 / gamma)))
     print(K2)
 
 
@@ -143,17 +142,17 @@ def test_smo():
     # print(labelMat)
 
 
-def test_smo2():
-    filename = './practice/testSet.txt'
-    C = 200
-    toler = 0
-    max_iter = 100
-    k_tup = ('lin', 1)
-    dataMat, labelMat = svm_ref.loadDataSet(filename)
-    b, alphas = svm_ref.smoP(dataMat, labelMat, C, toler, max_iter)
-    w = svm_ref.calcWs(alphas, dataMat, labelMat)
-    print(w)
-    print(b)
+# def test_smo2():
+#     filename = './practice/testSet.txt'
+#     C = 200
+#     toler = 0
+#     max_iter = 100
+#     k_tup = ('lin', 1)
+#     dataMat, labelMat = svm_ref.loadDataSet(filename)
+#     b, alphas = svm_ref.smoP(dataMat, labelMat, C, toler, max_iter)
+#     w = svm_ref.calcWs(alphas, dataMat, labelMat)
+#     print(w)
+#     print(b)
 
 
 if __name__ == '__main__':

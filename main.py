@@ -80,6 +80,11 @@ def main():
     t3 = time.time()
     check = (results == test_ls)
     acc = np.sum(check) / len(check)
+    print('k_tup:', k_tup)
+    if is_simple:
+        print('simple smo')
+    else:
+        print('complete smo')
     print('training time:', t2 - t1)
     print('test time:', t3 - t2)
     print('accuracy:', acc)

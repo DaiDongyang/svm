@@ -1,5 +1,10 @@
 import numpy as np
 import random
+import config
+
+log_level = config.log_level
+is_max_e_random = config.is_max_e_rnd
+j_change_tol = config.j_change_tol
 
 
 def rbf_trans(data1, data2, gamma):
@@ -95,8 +100,7 @@ def inner_l(i, meta, is_simple):
             j = select_j_rand(i, meta.m)
             ej = float(meta.e_cache[j])
         else:
-            # todo:to do more work about the third argment
-            j, ej = select_j(i, meta, True)
+            j, ej = select_j(i, meta, is_max_e_random)
         # print('meta.a\n', meta.a)
         ai_old = float(meta.a[i])
         aj_old = float(meta.a[j])
@@ -107,17 +111,20 @@ def inner_l(i, meta, is_simple):
             low = max(0.0, ai_old + aj_old - meta.C)
             high = min(meta.C, ai_old + aj_old)
         if low == high:
-            print('l == h')
+            if log_level > 2:
+                print('l == h')
             return 0
         # print('L, H, alphaiold', low, high, ai_old)
         eta = 2.0 * meta.K[i, j] - meta.K[i, i] - meta.K[j, j]
         if eta >= 0:
-            print('eta >= 0')
+            if log_level > 2:
+                print('eta >= 0')
             return 0
         aj = aj_old - meta.y[j] * (ei - ej) / eta
         aj = np.clip(aj, low, high)
-        if np.abs(aj - aj_old) < 0.00001:
-            print('j not moving enough')
+        if np.abs(aj - aj_old) < j_change_tol:
+            if log_level > 2:
+                print('j not moving enough')
             return 0
         meta.a[j] = aj
         meta.a[i] += meta.y[j] * meta.y[i] * (aj_old - meta.a[j])  # update i by the same amount as j
@@ -149,18 +156,21 @@ def smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
         if entire_set:
             for i in range(meta.m):
                 pair_changed += inner_l(i, meta, is_simple)
-                print('fullSet, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
+                if log_level > 2:
+                    print('fullSet, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
         else:
             non_bound_idxes = np.nonzero((meta.a > 0) * (meta.a < meta.C))[0]
             for i in non_bound_idxes:
                 pair_changed += inner_l(i, meta, is_simple)
-                print('non-bound, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
+                if log_level > 2:
+                    print('non-bound, iter: %d i:%d, pair changed %d' % (it, i, pair_changed))
         it += 1
         if entire_set:
             entire_set = False
         elif pair_changed == 0:
             entire_set = True
-        print('iter number: %d' % it)
+        if log_level > 1:
+            print('iteration number: %d, pair changed %d' % (it, pair_changed))
     return meta
 
 
@@ -174,9 +184,11 @@ def sim_smo(data, ls, C, toler, max_iter, k_tup=('rbf', 1)):
         pair_change = 0
         for i in range(meta.m):
             pair_change += inner_l(i, meta, is_simple)
-            print('simple smo, iter: %d, i%d,pair changed %d' % (it, i, pair_change))
+            if log_level > 2:
+                print('simple smo, iter: %d, i%d,pair changed %d' % (it, i, pair_change))
         it += 1
-        print('iter number: %d' % it)
+        if log_level > 1:
+            print('iter number: %d' % it)
     return meta
 
 

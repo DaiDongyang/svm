@@ -2,6 +2,9 @@ import my_svm
 import config
 import load_data
 import numpy as np
+import time
+
+log_level = config.log_level
 
 
 def train_models(train_dir, classes, C, toler, max_iter, k_tup, is_simple):
@@ -11,6 +14,8 @@ def train_models(train_dir, classes, C, toler, max_iter, k_tup, is_simple):
     models = list()
     for i in range(classes_num):
         for j in range(i+1, classes_num):
+            if log_level > 0:
+                print('train between %d and %d' % (classes[i], classes[j]))
             model = train_2c(subsets, i, j, C, toler, max_iter, k_tup, is_simple)
             models.append((model, i, j))
     return models
@@ -40,15 +45,11 @@ def model_predict(model_tuple, data):
     return list(results.flat)
 
 
-def pr_mat2result(pr_mat, classes):
+def prmat2result(pr_mat, classes):
     _, n = pr_mat.shape
     freq_mat = np.zeros((len(classes), n))
     n_idx = np.array(range(n))
     for row in pr_mat:
-        # print(freq_mat.shape)
-        # print(np.max(row))
-        # print(np.min(row))
-        # print(np.max(n_idx))
         freq_mat[row, n_idx] += 1
     r_idx = np.argmax(freq_mat, axis=0)
     classes_np = np.array(classes)
@@ -64,21 +65,26 @@ def main():
     max_iter = config.max_iter
     k_tup = config.k_tup
     is_simple = config.is_simple
-    models = train_models(train_dir, classes, C, toler, max_iter, k_tup, is_simple)
     test_data, test_ls = load_data.load_sample_set(test_dir)
+    t1 = time.time()
+    models = train_models(train_dir, classes, C, toler, max_iter, k_tup, is_simple)
+    t2 = time.time()
     pr_2d_list = list()
     for model_tuple in models:
+        if log_level > 0:
+            print('test between %d and %d' % (model_tuple[1], model_tuple[2]))
         result = model_predict(model_tuple, test_data)
         pr_2d_list.append(result)
     pr_mat = np.array(pr_2d_list)
-    np.save('pr_mat', pr_mat)
-    np.save('test_ls', test_ls)
-    print(pr_mat.shape)
-    results = pr_mat2result(pr_mat, classes)
+    results = prmat2result(pr_mat, classes)
+    t3 = time.time()
     check = (results == test_ls)
-    print(np.sum(check))
-    print(len(check))
-    print(np.sum(check)/len(check))
+    acc = np.sum(check) / len(check)
+    print('training time:', t2 - t1)
+    print('test time:', t3 - t2)
+    print('accuracy:', acc)
+    # np.save('results', results)
+    # np.save('test_ls', test_ls)
 
 
 if __name__ == '__main__':

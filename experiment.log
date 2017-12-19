@@ -1,0 +1,926 @@
+nohup: ignoring input
+complete smo
+C: 0.1
+k_tup: ('lin', 1)
+training time: 5.387s
+training set test time: 1.219s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.523s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 1e-08)
+training time: 16.127s
+training set test time: 8.812s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.368s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 1e-06)
+training time: 16.646s
+training set test time: 8.677s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.289s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 0.0001)
+training time: 16.476s
+training set test time: 8.765s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.295s
+test set accuracy: 0.864693446089
+test set error rate: 0.135306553911
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 0.01)
+training time: 16.810s
+training set test time: 21.038s
+training set accuracy: 0.961220268873
+training set error rate: 0.0387797311272
+test set test time: 10.251s
+test set accuracy: 0.932346723044
+test set error rate: 0.0676532769556
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 1)
+training time: 16.306s
+training set test time: 139.648s
+training set accuracy: 0.998965873837
+training set error rate: 0.00103412616339
+test set test time: 62.649s
+test set accuracy: 0.779069767442
+test set error rate: 0.220930232558
+
+complete smo
+C: 0.1
+k_tup: ('rbf', 100)
+training time: 16.400s
+training set test time: 133.826s
+training set accuracy: 0.961737331954
+training set error rate: 0.0382626680455
+test set test time: 61.828s
+test set accuracy: 0.0919661733615
+test set error rate: 0.908033826638
+
+complete smo
+C: 0.5
+k_tup: ('lin', 1)
+training time: 5.340s
+training set test time: 1.235s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.545s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 1e-08)
+training time: 16.566s
+training set test time: 8.775s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.244s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 1e-06)
+training time: 16.010s
+training set test time: 8.785s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.286s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 0.0001)
+training time: 15.927s
+training set test time: 8.753s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.302s
+test set accuracy: 0.864693446089
+test set error rate: 0.135306553911
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 0.01)
+training time: 15.982s
+training set test time: 20.557s
+training set accuracy: 0.959152016546
+training set error rate: 0.040847983454
+test set test time: 10.065s
+test set accuracy: 0.928118393235
+test set error rate: 0.0718816067653
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 1)
+training time: 16.273s
+training set test time: 142.207s
+training set accuracy: 0.998965873837
+training set error rate: 0.00103412616339
+test set test time: 62.082s
+test set accuracy: 0.876321353066
+test set error rate: 0.123678646934
+
+complete smo
+C: 0.5
+k_tup: ('rbf', 100)
+training time: 16.247s
+training set test time: 140.086s
+training set accuracy: 0.961737331954
+training set error rate: 0.0382626680455
+test set test time: 62.173s
+test set accuracy: 0.0919661733615
+test set error rate: 0.908033826638
+
+complete smo
+C: 1
+k_tup: ('lin', 1)
+training time: 5.296s
+training set test time: 1.210s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.523s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 1
+k_tup: ('rbf', 1e-08)
+training time: 15.555s
+training set test time: 8.574s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.214s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 1
+k_tup: ('rbf', 1e-06)
+training time: 15.844s
+training set test time: 8.855s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.352s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 1
+k_tup: ('rbf', 0.0001)
+training time: 16.102s
+training set test time: 8.862s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.361s
+test set accuracy: 0.864693446089
+test set error rate: 0.135306553911
+
+complete smo
+C: 1
+k_tup: ('rbf', 0.01)
+training time: 16.012s
+training set test time: 23.621s
+training set accuracy: 0.976215098242
+training set error rate: 0.023784901758
+test set test time: 11.577s
+test set accuracy: 0.954545454545
+test set error rate: 0.0454545454545
+
+complete smo
+C: 1
+k_tup: ('rbf', 1)
+training time: 16.401s
+training set test time: 139.988s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 65.003s
+test set accuracy: 0.49577167019
+test set error rate: 0.50422832981
+
+complete smo
+C: 1
+k_tup: ('rbf', 100)
+training time: 16.442s
+training set test time: 143.500s
+training set accuracy: 0.961737331954
+training set error rate: 0.0382626680455
+test set test time: 63.418s
+test set accuracy: 0.0919661733615
+test set error rate: 0.908033826638
+
+complete smo
+C: 2
+k_tup: ('lin', 1)
+training time: 5.308s
+training set test time: 1.209s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.533s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 2
+k_tup: ('rbf', 1e-08)
+training time: 15.755s
+training set test time: 8.920s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.173s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 2
+k_tup: ('rbf', 1e-06)
+training time: 15.532s
+training set test time: 8.687s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.231s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 2
+k_tup: ('rbf', 0.0001)
+training time: 15.765s
+training set test time: 8.735s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.196s
+test set accuracy: 0.864693446089
+test set error rate: 0.135306553911
+
+complete smo
+C: 2
+k_tup: ('rbf', 0.01)
+training time: 15.931s
+training set test time: 23.831s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 11.420s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+complete smo
+C: 2
+k_tup: ('rbf', 1)
+training time: 22.509s
+training set test time: 142.347s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.353s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+complete smo
+C: 2
+k_tup: ('rbf', 100)
+training time: 22.294s
+training set test time: 146.326s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.167s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+complete smo
+C: 5
+k_tup: ('lin', 1)
+training time: 5.320s
+training set test time: 1.219s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.518s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 5
+k_tup: ('rbf', 1e-08)
+training time: 15.838s
+training set test time: 8.772s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.205s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 5
+k_tup: ('rbf', 1e-06)
+training time: 15.824s
+training set test time: 8.739s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.203s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 5
+k_tup: ('rbf', 0.0001)
+training time: 15.843s
+training set test time: 8.657s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.207s
+test set accuracy: 0.864693446089
+test set error rate: 0.135306553911
+
+complete smo
+C: 5
+k_tup: ('rbf', 0.01)
+training time: 16.034s
+training set test time: 23.608s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 11.451s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+complete smo
+C: 5
+k_tup: ('rbf', 1)
+training time: 22.624s
+training set test time: 142.753s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.333s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+complete smo
+C: 5
+k_tup: ('rbf', 100)
+training time: 22.359s
+training set test time: 146.717s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.092s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+complete smo
+C: 10
+k_tup: ('lin', 1)
+training time: 5.308s
+training set test time: 1.210s
+training set accuracy: 0.903826266805
+training set error rate: 0.0961737331954
+test set test time: 0.522s
+test set accuracy: 0.889006342495
+test set error rate: 0.110993657505
+
+complete smo
+C: 10
+k_tup: ('rbf', 1e-08)
+training time: 15.705s
+training set test time: 8.617s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.188s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 10
+k_tup: ('rbf', 1e-06)
+training time: 15.724s
+training set test time: 8.643s
+training set accuracy: 0.868148914168
+training set error rate: 0.131851085832
+test set test time: 4.198s
+test set accuracy: 0.867864693446
+test set error rate: 0.132135306554
+
+complete smo
+C: 10
+k_tup: ('rbf', 0.0001)
+training time: 15.614s
+training set test time: 8.784s
+training set accuracy: 0.886246122027
+training set error rate: 0.113753877973
+test set test time: 4.207s
+test set accuracy: 0.883720930233
+test set error rate: 0.116279069767
+
+complete smo
+C: 10
+k_tup: ('rbf', 0.01)
+training time: 15.780s
+training set test time: 23.967s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 11.472s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+complete smo
+C: 10
+k_tup: ('rbf', 1)
+training time: 22.553s
+training set test time: 142.548s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.344s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+complete smo
+C: 10
+k_tup: ('rbf', 100)
+training time: 22.431s
+training set test time: 142.321s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 64.273s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 0.1
+k_tup: ('lin', 1)
+training time: 28.832s
+training set test time: 3.862s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 1.625s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 1e-08)
+training time: 18.091s
+training set test time: 135.760s
+training set accuracy: 0.103929679421
+training set error rate: 0.896070320579
+test set test time: 61.121s
+test set accuracy: 0.101479915433
+test set error rate: 0.898520084567
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 1e-06)
+training time: 18.233s
+training set test time: 136.525s
+training set accuracy: 0.120475698035
+training set error rate: 0.879524301965
+test set test time: 61.409s
+test set accuracy: 0.105708245243
+test set error rate: 0.894291754757
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 0.0001)
+training time: 18.285s
+training set test time: 136.765s
+training set accuracy: 0.100827300931
+training set error rate: 0.899172699069
+test set test time: 61.525s
+test set accuracy: 0.0919661733615
+test set error rate: 0.908033826638
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 0.01)
+training time: 32.474s
+training set test time: 91.534s
+training set accuracy: 0.967425025853
+training set error rate: 0.0325749741468
+test set test time: 40.737s
+test set accuracy: 0.950317124736
+test set error rate: 0.0496828752643
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 1)
+training time: 38.468s
+training set test time: 141.955s
+training set accuracy: 0.105480868666
+training set error rate: 0.894519131334
+test set test time: 64.408s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 0.1
+k_tup: ('rbf', 100)
+training time: 38.344s
+training set test time: 141.900s
+training set accuracy: 0.105480868666
+training set error rate: 0.894519131334
+test set test time: 64.308s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 0.5
+k_tup: ('lin', 1)
+training time: 27.422s
+training set test time: 3.781s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 1.608s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 1e-08)
+training time: 18.230s
+training set test time: 140.452s
+training set accuracy: 0.175284384695
+training set error rate: 0.824715615305
+test set test time: 61.659s
+test set accuracy: 0.162790697674
+test set error rate: 0.837209302326
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 1e-06)
+training time: 18.143s
+training set test time: 140.248s
+training set accuracy: 0.205791106515
+training set error rate: 0.794208893485
+test set test time: 61.593s
+test set accuracy: 0.19133192389
+test set error rate: 0.80866807611
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 0.0001)
+training time: 18.475s
+training set test time: 125.514s
+training set accuracy: 0.79576008273
+training set error rate: 0.20423991727
+test set test time: 56.500s
+test set accuracy: 0.790697674419
+test set error rate: 0.209302325581
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 0.01)
+training time: 39.302s
+training set test time: 57.057s
+training set accuracy: 0.99379524302
+training set error rate: 0.00620475698035
+test set test time: 27.264s
+test set accuracy: 0.984143763214
+test set error rate: 0.0158562367865
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 1)
+training time: 40.977s
+training set test time: 146.167s
+training set accuracy: 0.105480868666
+training set error rate: 0.894519131334
+test set test time: 63.713s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 0.5
+k_tup: ('rbf', 100)
+training time: 40.649s
+training set test time: 146.516s
+training set accuracy: 0.105480868666
+training set error rate: 0.894519131334
+test set test time: 64.137s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 1
+k_tup: ('lin', 1)
+training time: 28.572s
+training set test time: 3.831s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 1.643s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+simple smo
+C: 1
+k_tup: ('rbf', 1e-08)
+training time: 18.237s
+training set test time: 139.522s
+training set accuracy: 0.141675284385
+training set error rate: 0.858324715615
+test set test time: 61.551s
+test set accuracy: 0.134249471459
+test set error rate: 0.865750528541
+
+simple smo
+C: 1
+k_tup: ('rbf', 1e-06)
+training time: 18.180s
+training set test time: 138.936s
+training set accuracy: 0.103929679421
+training set error rate: 0.896070320579
+test set test time: 61.571s
+test set accuracy: 0.101479915433
+test set error rate: 0.898520084567
+
+simple smo
+C: 1
+k_tup: ('rbf', 0.0001)
+training time: 19.389s
+training set test time: 94.377s
+training set accuracy: 0.932264736298
+training set error rate: 0.0677352637022
+test set test time: 41.802s
+test set accuracy: 0.93023255814
+test set error rate: 0.0697674418605
+
+simple smo
+C: 1
+k_tup: ('rbf', 0.01)
+training time: 39.956s
+training set test time: 55.396s
+training set accuracy: 0.998965873837
+training set error rate: 0.00103412616339
+test set test time: 32.263s
+test set accuracy: 0.989429175476
+test set error rate: 0.0105708245243
+
+simple smo
+C: 1
+k_tup: ('rbf', 1)
+training time: 47.886s
+training set test time: 143.414s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 91.562s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 1
+k_tup: ('rbf', 100)
+training time: 80.117s
+training set test time: 188.945s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 108.753s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 2
+k_tup: ('lin', 1)
+training time: 50.656s
+training set test time: 5.832s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 2.540s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+simple smo
+C: 2
+k_tup: ('rbf', 1e-08)
+training time: 42.799s
+training set test time: 193.445s
+training set accuracy: 0.154601861427
+training set error rate: 0.845398138573
+test set test time: 95.295s
+test set accuracy: 0.132135306554
+test set error rate: 0.867864693446
+
+simple smo
+C: 2
+k_tup: ('rbf', 1e-06)
+training time: 40.462s
+training set test time: 189.716s
+training set accuracy: 0.234229576008
+training set error rate: 0.765770423992
+test set test time: 94.129s
+test set accuracy: 0.22621564482
+test set error rate: 0.77378435518
+
+simple smo
+C: 2
+k_tup: ('rbf', 0.0001)
+training time: 44.204s
+training set test time: 97.716s
+training set accuracy: 0.954498448811
+training set error rate: 0.0455015511892
+test set test time: 43.363s
+test set accuracy: 0.948202959831
+test set error rate: 0.0517970401691
+
+simple smo
+C: 2
+k_tup: ('rbf', 0.01)
+training time: 71.676s
+training set test time: 80.561s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 46.278s
+test set accuracy: 0.991543340381
+test set error rate: 0.00845665961945
+
+simple smo
+C: 2
+k_tup: ('rbf', 1)
+training time: 86.768s
+training set test time: 187.800s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 105.950s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 2
+k_tup: ('rbf', 100)
+training time: 71.363s
+training set test time: 193.573s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 98.744s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 5
+k_tup: ('lin', 1)
+training time: 38.184s
+training set test time: 6.699s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 3.280s
+test set accuracy: 0.985200845666
+test set error rate: 0.014799154334
+
+simple smo
+C: 5
+k_tup: ('rbf', 1e-08)
+training time: 39.521s
+training set test time: 178.771s
+training set accuracy: 0.215615305067
+training set error rate: 0.784384694933
+test set test time: 97.520s
+test set accuracy: 0.197674418605
+test set error rate: 0.802325581395
+
+simple smo
+C: 5
+k_tup: ('rbf', 1e-06)
+training time: 45.904s
+training set test time: 186.963s
+training set accuracy: 0.188210961737
+training set error rate: 0.811789038263
+test set test time: 98.510s
+test set accuracy: 0.197674418605
+test set error rate: 0.802325581395
+
+simple smo
+C: 5
+k_tup: ('rbf', 0.0001)
+training time: 53.696s
+training set test time: 63.476s
+training set accuracy: 0.971044467425
+training set error rate: 0.028955532575
+test set test time: 28.023s
+test set accuracy: 0.970401691332
+test set error rate: 0.0295983086681
+
+simple smo
+C: 5
+k_tup: ('rbf', 0.01)
+training time: 70.719s
+training set test time: 84.933s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 41.704s
+test set accuracy: 0.991543340381
+test set error rate: 0.00845665961945
+
+simple smo
+C: 5
+k_tup: ('rbf', 1)
+training time: 85.798s
+training set test time: 188.723s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 107.786s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 5
+k_tup: ('rbf', 100)
+training time: 80.265s
+training set test time: 205.004s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 93.030s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 10
+k_tup: ('lin', 1)
+training time: 32.992s
+training set test time: 5.567s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 2.626s
+test set accuracy: 0.986257928118
+test set error rate: 0.0137420718816
+
+simple smo
+C: 10
+k_tup: ('rbf', 1e-08)
+training time: 41.618s
+training set test time: 199.727s
+training set accuracy: 0.164426059979
+training set error rate: 0.835573940021
+test set test time: 90.087s
+test set accuracy: 0.155391120507
+test set error rate: 0.844608879493
+
+simple smo
+C: 10
+k_tup: ('rbf', 1e-06)
+training time: 41.822s
+training set test time: 198.844s
+training set accuracy: 0.200620475698
+training set error rate: 0.799379524302
+test set test time: 88.593s
+test set accuracy: 0.194503171247
+test set error rate: 0.805496828753
+
+simple smo
+C: 10
+k_tup: ('rbf', 0.0001)
+training time: 48.719s
+training set test time: 45.768s
+training set accuracy: 0.980351602896
+training set error rate: 0.0196483971044
+test set test time: 22.457s
+test set accuracy: 0.972515856237
+test set error rate: 0.0274841437632
+
+simple smo
+C: 10
+k_tup: ('rbf', 0.01)
+training time: 71.088s
+training set test time: 94.285s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 41.729s
+test set accuracy: 0.991543340381
+test set error rate: 0.00845665961945
+
+simple smo
+C: 10
+k_tup: ('rbf', 1)
+training time: 73.263s
+training set test time: 206.964s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 111.947s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+simple smo
+C: 10
+k_tup: ('rbf', 100)
+training time: 74.179s
+training set test time: 193.783s
+training set accuracy: 1.0
+training set error rate: 0.0
+test set test time: 109.809s
+test set accuracy: 0.0940803382664
+test set error rate: 0.905919661734
+
+total time 13114.831s

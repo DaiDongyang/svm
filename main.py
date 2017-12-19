@@ -65,29 +65,51 @@ def main():
     max_iter = config.max_iter
     k_tup = config.k_tup
     is_simple = config.is_simple
+    train_data, train_ls = load_data.load_sample_set(train_dir)
     test_data, test_ls = load_data.load_sample_set(test_dir)
     t1 = time.time()
     models = train_models(train_dir, classes, C, toler, max_iter, k_tup, is_simple)
     t2 = time.time()
-    pr_2d_list = list()
+
+    #  train set
+    pr_2d_list0 = list()
     for model_tuple in models:
         if log_level > 0:
-            print('test between %d and %d' % (model_tuple[1], model_tuple[2]))
-        result = model_predict(model_tuple, test_data)
-        pr_2d_list.append(result)
-    pr_mat = np.array(pr_2d_list)
-    results = prmat2result(pr_mat, classes)
+            print('training set test between %d and %d' % (model_tuple[1], model_tuple[2]))
+        result0 = model_predict(model_tuple, train_data)
+        pr_2d_list0.append(result0)
+    pr_mat0 = np.array(pr_2d_list0)
+    results0 = prmat2result(pr_mat0, classes)
+    check0 = (results0 == train_ls)
+    acc0 = np.sum(check0) / len(check0)
     t3 = time.time()
-    check = (results == test_ls)
-    acc = np.sum(check) / len(check)
-    print('k_tup:', k_tup)
+
+    #  test set
+    pr_2d_list1 = list()
+    for model_tuple in models:
+        if log_level > 0:
+            print('test set test between %d and %d' % (model_tuple[1], model_tuple[2]))
+        result1 = model_predict(model_tuple, test_data)
+        pr_2d_list1.append(result1)
+    pr_mat1 = np.array(pr_2d_list1)
+    results1 = prmat2result(pr_mat1, classes)
+    check1 = (results1 == test_ls)
+    acc1 = np.sum(check1) / len(check1)
+    t4 = time.time()
+
     if is_simple:
         print('simple smo')
     else:
         print('complete smo')
-    print('training time:', t2 - t1)
-    print('test time:', t3 - t2)
-    print('accuracy:', acc)
+    print('C:', C)
+    print('k_tup:', k_tup)
+    print('training time: %.3fs' % (t2 - t1))
+    print('training set test time: %.3fs' % (t3 - t2))
+    print('training set accuracy:', acc0)
+    print('training set error rate:', 1 - acc0)
+    print('test set test time: %.3fs' % (t4 - t3))
+    print('test set accuracy:', acc1)
+    print('test set error rate:', 1 - acc1)
     # np.save('results', results)
     # np.save('test_ls', test_ls)
 
